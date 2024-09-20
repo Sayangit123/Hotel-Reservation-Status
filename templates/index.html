@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Hotel Booking</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <div class="container">
+    <h1> Reservation Booking Status</h1>
+    <form action="/predict"  method="post">
+
+        <div class="form-group">
+            <label for="market_segment">market_segment:</label>
+            <select id="market_segment" name="market_segment" required>
+                <option value="" disabled selected>Select market segment</option>
+                <option value="Direct">Direct</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Online TA">Online TA</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="distribution_channel">distribution_channel:</label>
+            <select id="distribution_channel" name="distribution_channel" required>
+                <option value="" disabled selected>Select distribution channel</option>
+                <option value="Direct">Direct</option>
+                <option value="Corporate">Corporate</option>
+                <option value="TA/TO">Corporate</option>
+            </select>
+        <div>
+
+            <div class="form-group">
+                <label for="reserved_room_type">reserved_room_type:</label>
+                <select id="reserved_room_type" name="reserved_room_type" required>
+                    <option value="" disabled selected>Select reserved room type</option>
+                    <option value="C">C</option>
+                    <option value="A">A</option>
+                    <option value="E">E</option>
+                    <option value="D">D</option>
+                </select>     
+            </div>
+
+            <div class="form-group">
+                <label for="assigned_room_type">assigned_room_type:</label>
+                <select id="assigned_room_type" name="assigned_room_type" required>
+                    <option value="" disabled selected>Select assigned room type</option>
+                    <option value="C">C</option>
+                    <option value="A">A</option>
+                    <option value="E">E</option>
+                    <option value="D">D</option>
+                </select>     
+            </div>
+
+            <div class="form-group">
+                <label for="customer_type">customer_type:</label>
+                <select id="customer_type" name="customer_type" required>
+                    <option value="" disabled selected>Select customer type</option>
+                    <option value="Non Transient"> Non Transient</option>
+                    <option value="Transient">Transient</option>
+                </select>     
+            </div>
+
+            <div class="form-group">
+                <label for="reservation_status">reservation_status:</label>
+                <select id="reservation_status" name="reservation_status" required>
+                    <option value="" disabled selected>Select reservation type</option>
+                    <option value="Check-Out">Check-Out</option>
+                    <option value="Check-In">Check-In</option>
+                </select>     
+            </div>
+
+            <div class="form-group">
+                <label for="lead_time">lead_time:</label>
+                <input type="text" id="lead_time" name="lead_time" placeholder="e.g., 800.0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival_date_year">arrival_date_year:</label>
+                <input type="text" id="arrival_date_year" name="arrival_date_year" placeholder="e.g., 2017" required>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival_date_week_number">arrival_date_week_number:</label>
+                <input type="text" id="arrival_date_week_number" name="arrival_date_week_number" placeholder="e.g., 27" required>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival_date_day_of_month">arrival_date_day_of_month:</label>
+                <input type="text" id="arrival_date_day_of_month" name="arrival_date_day_of_month" placeholder="e.g., 30" required>
+            </div>
+
+            <div class="form-group">
+                <label for="adults">adults:</label>
+                <input type="text" id="adults" name="adults" placeholder="e.g., 2" required>
+            </div>
+
+            <input type="submit" value="Predict">
+    </form>
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}                          
+    </div>
+</body>
+</html>
+
+
+            
+            
